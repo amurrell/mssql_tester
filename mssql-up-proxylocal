@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# SA_PASSWORD: This password needs to include at least 8 characters of at least three of these four categories:
+# uppercase letters, lowercase letters, numbers and non-alphanumeric symbols
+#-v $HOME/docker/volumes/mssql:/var/opt/mssql \
+
+docker run --name ms-docker -p 0.0.0.0:1433:1433 --network=proxylocal_docker-proxy-net -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=MSD0ck3r!' -d mcr.microsoft.com/mssql/server:2017-latest

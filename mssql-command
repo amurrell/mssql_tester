@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+Q=$(sed -e 's#.*\-q=\([^\-]*\).*#\1#' <<< "$1")
+
+if [ "$Q" == "$1" ]; then
+    sudo docker exec -it ms-docker /opt/mssql-tools/bin/sqlcmd \
+   -S localhost -U SA -P 'MSD0ck3r!'   
+else
+sudo docker exec -it ms-docker /opt/mssql-tools/bin/sqlcmd \
+   -S localhost -U SA -P 'MSD0ck3r!' \
+   -Q "$Q"
+fi
